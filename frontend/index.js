@@ -12,42 +12,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
   let mentors = [];
   let learners = [];
 
-  let mentorsURL = "http://localhost:3003/api/mentors";
-  let learnersURL = "http://localhost:3003/api/learners";
-
-  axios.get(learnersURL)
-  .then(res =>{
-    learners = res.data;
-    mentors = res.data;
-    console.log(learners);
-  })
-  .catch(err => { 
-    console.log(`Something went wrong: ${err.message}`)
-  })
-
-  try {
-   
-    const res = await axios.get(learnersURL)
-    console.log(`I want to print ${learners.id}`)
-  } catch (err) {
-  }
-
-
-  axios.get(mentorsURL)
-  .then(res =>{
-    mentors = res.data;
-  })
-  .catch(err => { 
-    console.log(`Something went wrong: ${err.message}`)
-  })
-
-  try {
-   
-    const res = await axios.get(mentorsURL)
-    console.log(mentors)
-  } catch (err) {
-  }
-
+  
 
 
   // 👆 ==================== TASK 1 END ====================== 👆
@@ -94,27 +59,7 @@ async function sprintChallenge5() { // Note the async keyword so you can use `aw
     const mentorsHeading = document.createElement('h4')
     const mentorsList = document.createElement('ul')
     
-    card.classList.add('card')
-    heading.textContent = learner.fullName;
-    card.appendChild(heading);
-    card.appendChild(email);
-    email.textContent = learner.email;
     
-    card.appendChild(mentorsHeading);
-    mentorsHeading.classList.add('closed');
-    mentorsHeading.textContent = 'Mentors';
-
-
-    learner.mentors.forEach(mentorId => {
-      const mentor = mentors.find(m => m.id === mentorId);
-      if (mentor) {
-        const mentorsData = document.createElement('li');
-        mentorsList.appendChild(mentorsData);
-        mentorsData.textContent = `${mentor.firstName} ${mentor.lastName}`;
-        console.log(mentorsData);
-      }
-    });
-
 
     // 👆 ==================== TASK 3 END ====================== 👆
 
